@@ -1,0 +1,3 @@
+﻿This is a really important file that some process expect to be writable
+
+If it is changed to read only, and error will occur somewhere

